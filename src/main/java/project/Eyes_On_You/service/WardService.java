@@ -20,6 +20,7 @@ public class WardService {
 
     @Transactional
     public Long saveWard(WardDto wardDto){
+        System.out.println(wardDto.isDetected());
         return wardRepository.save(wardDto.toEntity()).getId();
     }
 
@@ -36,7 +37,7 @@ public class WardService {
                     .description(ward.getDescription())
                     .fileLoc(ward.getFileLoc())
                     .fileName(ward.getFileName())
-                    .isDetected(ward.isDetected())
+                    .detected(ward.isDetected())
                     .build();
             wardDtoList.add(wardDto);
         }
@@ -44,7 +45,7 @@ public class WardService {
     }
 
     public List<WardDto> findDetected(){
-        List<Ward> wardList = wardRepository.findByIsDetectedTrue();
+        List<Ward> wardList = wardRepository.findByDetectedTrue();
         List<WardDto> wardDtoList = new ArrayList<>();
 
         for(Ward ward : wardList) {
@@ -56,7 +57,7 @@ public class WardService {
                     .description(ward.getDescription())
                     .fileLoc(ward.getFileLoc())
                     .fileName(ward.getFileName())
-                    .isDetected(ward.isDetected())
+                    .detected(ward.isDetected())
                     .build();
             wardDtoList.add(wardDto);
         }
@@ -74,7 +75,7 @@ public class WardService {
                 .description(ward.getDescription())
                 .fileLoc(ward.getFileLoc())
                 .fileName(ward.getFileName())
-                .isDetected(ward.isDetected())
+                .detected(ward.isDetected())
                 .build();
         return wardDto;
     }

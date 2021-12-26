@@ -33,11 +33,11 @@ public class Ward {
     private String fileLoc;
     @Column(nullable = false)
     private String fileName;
-    @Column(nullable = false)
-    private boolean isDetected=true;
+    @Column(nullable = false, columnDefinition = "tinyint default 1")
+    private boolean detected=true;
 
     @Builder
-    public Ward(Long id, String name, String phoneNum, String description, LocalDateTime lastSeen,String fileLoc, String fileName, boolean isDetected) {
+    public Ward(Long id, String name, String phoneNum, String description, LocalDateTime lastSeen,String fileLoc, String fileName, boolean detected) {
         this.id = id;
         this.name = name;
         this.phoneNum = phoneNum;
@@ -45,6 +45,6 @@ public class Ward {
         this.description = description;
         this.fileLoc = fileLoc;
         this.fileName = fileName;
-        this.isDetected = isDetected;
+        this.detected = detected;
     }
 }

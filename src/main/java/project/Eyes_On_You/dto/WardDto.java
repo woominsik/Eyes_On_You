@@ -17,7 +17,7 @@ public class WardDto {
     private String description;
     private String fileLoc;
     private String fileName;
-    private boolean isDetected;
+    private boolean detected;
 
     public Ward toEntity(){
         Ward build= Ward.builder()
@@ -28,13 +28,13 @@ public class WardDto {
                 .lastSeen(lastSeen)
                 .fileLoc(fileLoc)
                 .fileName(fileName)
-                .isDetected(isDetected)
+                .detected(detected)
                 .build();
         return build;
     }
 
     @Builder
-    public WardDto(Long id, String name, String phoneNum, LocalDateTime lastSeen, String description, String fileLoc, String fileName, boolean isDetected) {
+    public WardDto(Long id, String name, String phoneNum, LocalDateTime lastSeen, String description, String fileLoc, String fileName, boolean detected) {
         this.id = id;
         this.name = name;
         this.phoneNum = phoneNum;
@@ -42,6 +42,6 @@ public class WardDto {
         this.description = description;
         this.fileLoc = fileLoc;
         this.fileName = fileName;
-        this.isDetected = isDetected;
+        this.detected = detected;
     }
 }

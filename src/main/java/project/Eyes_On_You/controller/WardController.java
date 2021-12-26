@@ -54,6 +54,7 @@ public class WardController {
         }
         wardDto.setLastSeen(LocalDateTime.now());
         wardDto.setFileLoc(fileLoc);
+        wardDto.setDetected(true);
         wardDto.setFileName(image.getOriginalFilename());
         wardService.saveWard(wardDto);
         return "redirect:/wards";
@@ -85,7 +86,8 @@ public class WardController {
 
     @GetMapping("/monitor")
     public String monitor(Model model){
-        List<WardDto> wards= wardService.getAllWard();
+//        List<WardDto> wards= wardService.getAllWard();
+        List<WardDto> wards = wardService.findDetected();
         model.addAttribute("wards", wards);
         return "/index2.html";
     }
