@@ -91,4 +91,8 @@ public class WardController {
         model.addAttribute("wards", wards);
         return "/index2.html";
     }
+    @GetMapping("/addUser")
+    public String addUser(Model model){
+        return "addUserForm.html";
+    }
 }
